@@ -30,13 +30,13 @@ class HomeViewController: UIViewController {
     }
     
     func presentActionSheet() {
-        let actionSheet = UIAlertController(title: "Source", message: "Please select source type!", preferredStyle: .actionSheet)
+        let actionSheet = UIAlertController(title: "", message: "Please select Source Type", preferredStyle: .actionSheet)
         
         let cameraAction = UIAlertAction(title: "Camera", style: .default) { (action) in
             self.presentImagePicker(sourceType: .camera)
         }
         
-        let photoLibraryAction = UIAlertAction(title: "Photo Library", style: .destructive) { (action) in
+        let photoLibraryAction = UIAlertAction(title: "Photo Library", style: .default) { (action) in
             self.presentImagePicker(sourceType: .photoLibrary)
         }
         
@@ -53,8 +53,11 @@ class HomeViewController: UIViewController {
         self.present(actionSheet, animated: true, completion: nil)
         
     }
+   
+    @IBAction func imageTapped(_ sender: AnyObject) {
+        presentActionSheet()
+    }
     
-
 }
 
 extension HomeViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
