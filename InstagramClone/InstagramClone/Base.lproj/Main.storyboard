@@ -35,6 +35,9 @@
                             <outletCollection property="gestureRecognizers" destination="F7W-aj-HhC" appends="YES" id="pIF-IN-EcA"/>
                         </connections>
                     </view>
+                    <connections>
+                        <outlet property="selectedNewImageView" destination="2jc-33-DAf" id="OGk-i2-zc9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="F7W-aj-HhC">
