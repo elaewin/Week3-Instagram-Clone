@@ -13,6 +13,7 @@
 		553FDE5E1DBE75B20069E282 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 553FDE5C1DBE75B20069E282 /* LaunchScreen.storyboard */; };
 		553FDE701DBE79080069E282 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 553FDE6F1DBE79080069E282 /* CloudKit.framework */; };
 		553FDE721DBE7E7B0069E282 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553FDE711DBE7E7B0069E282 /* API.swift */; };
+		553FDE741DBE850F0069E282 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553FDE731DBE850F0069E282 /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		553FDE691DBE78020069E282 /* InstagramClone.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = InstagramClone.entitlements; sourceTree = "<group>"; };
 		553FDE6F1DBE79080069E282 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		553FDE711DBE7E7B0069E282 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		553FDE731DBE850F0069E282 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 		553FDE671DBE76CA0069E282 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				553FDE731DBE850F0069E282 /* HomeViewController.swift */,
 				553FDE531DBE75B20069E282 /* AppDelegate.swift */,
 			);
 			name = Controller;
@@ -193,6 +196,7 @@
 			files = (
 				553FDE721DBE7E7B0069E282 /* API.swift in Sources */,
 				553FDE541DBE75B20069E282 /* AppDelegate.swift in Sources */,
+				553FDE741DBE850F0069E282 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
