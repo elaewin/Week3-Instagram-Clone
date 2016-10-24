@@ -27,9 +27,9 @@
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="2jc-33-DAf" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="FLk-zu-eUA"/>
-                            <constraint firstItem="2jc-33-DAf" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.75" id="YYc-UH-6VM"/>
+                            <constraint firstItem="2jc-33-DAf" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.85" id="YYc-UH-6VM"/>
                             <constraint firstItem="2jc-33-DAf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="sTl-cS-jwT"/>
-                            <constraint firstItem="2jc-33-DAf" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.75" id="sxR-rZ-0OW"/>
+                            <constraint firstItem="2jc-33-DAf" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.85" id="sxR-rZ-0OW"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="F7W-aj-HhC" appends="YES" id="pIF-IN-EcA"/>

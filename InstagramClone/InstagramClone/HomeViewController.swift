@@ -24,6 +24,7 @@ class HomeViewController: UIViewController {
         
         self.imagePicker.delegate = self
         self.imagePicker.sourceType = sourceType
+        self.imagePicker.allowsEditing = true
         
         self.present(imagePicker, animated: true, completion: nil)
         
@@ -61,6 +62,18 @@ class HomeViewController: UIViewController {
 }
 
 extension HomeViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        if let originalImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            //create outlet to image view
+            //put on image view
+        }
+    }
     
 }
 
