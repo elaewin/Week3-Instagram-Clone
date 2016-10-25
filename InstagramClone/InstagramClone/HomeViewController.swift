@@ -75,10 +75,6 @@ extension HomeViewController: UIImagePickerControllerDelegate, UINavigationContr
             self.imagePickedImageView.image = editedImage
         }
         
-//        if let originalImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
-//            self.imagePickedImageView.image = originalImage
-//            self.imagePickerControllerDidCancel(imagePicker)
-//        }
         self.imagePickerControllerDidCancel(imagePicker)
     }
     
