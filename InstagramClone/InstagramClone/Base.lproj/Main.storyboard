@@ -36,7 +36,7 @@
                         </connections>
                     </view>
                     <connections>
-                        <outlet property="selectedNewImageView" destination="2jc-33-DAf" id="OGk-i2-zc9"/>
+                        <outlet property="imagePickedImageView" destination="2jc-33-DAf" id="RYW-CD-xww"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

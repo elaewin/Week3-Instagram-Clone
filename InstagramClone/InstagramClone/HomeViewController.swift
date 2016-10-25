@@ -9,8 +9,8 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-
-    @IBOutlet weak var selectedNewImageView: UIImageView!
+    
+    @IBOutlet weak var imagePickedImageView: UIImageView!
     
     var imagePicker = UIImagePickerController()
     
@@ -63,10 +63,6 @@ class HomeViewController: UIViewController {
     
 }
 
-// Use the UIImagePickerController and its delegate to use the camera to set the image view's image.
-
-// Your UIImagePickerController should allow editing. Also, the edited image should be assigned to the image view.
-
 extension HomeViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
@@ -75,11 +71,18 @@ extension HomeViewController: UIImagePickerControllerDelegate, UINavigationContr
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
-        if let originalImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            //create outlet to image view
-            //put on image view
+        if let editedImage = info[UIImagePickerControllerEditedImage] as? UIImage {
+            self.imagePickedImageView.image = editedImage
+            self.imagePickerControllerDidCancel(imagePicker)
         }
+        
+//        if let originalImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+//            self.imagePickedImageView.image = originalImage
+//            self.imagePickerControllerDidCancel(imagePicker)
+//        }
     }
+    
+
     
 }
 
