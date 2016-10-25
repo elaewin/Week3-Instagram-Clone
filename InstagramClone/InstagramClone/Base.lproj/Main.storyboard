@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -22,14 +23,26 @@
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2jc-33-DAf">
                                 <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J4g-ne-kZc">
+                                <color key="backgroundColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="POST">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="postButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jgf-mV-BwK"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="2jc-33-DAf" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="FLk-zu-eUA"/>
-                            <constraint firstItem="2jc-33-DAf" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.85" id="YYc-UH-6VM"/>
-                            <constraint firstItem="2jc-33-DAf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="sTl-cS-jwT"/>
-                            <constraint firstItem="2jc-33-DAf" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.85" id="sxR-rZ-0OW"/>
+                            <constraint firstItem="2jc-33-DAf" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.75" id="0u7-yf-ngy"/>
+                            <constraint firstItem="2jc-33-DAf" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.75" id="3T1-v6-8YW"/>
+                            <constraint firstItem="2jc-33-DAf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Gou-ve-nGZ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="J4g-ne-kZc" secondAttribute="trailing" constant="16" id="g3t-fP-qVJ"/>
+                            <constraint firstItem="J4g-ne-kZc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="16" id="kwy-Ak-6jm"/>
+                            <constraint firstItem="2jc-33-DAf" firstAttribute="top" secondItem="J4g-ne-kZc" secondAttribute="bottom" constant="8" id="lGJ-4r-KwK"/>
+                            <constraint firstItem="2jc-33-DAf" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="uod-GD-tlz"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="F7W-aj-HhC" appends="YES" id="pIF-IN-EcA"/>
@@ -46,7 +59,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="90" y="113"/>
+            <point key="canvasLocation" x="88.799999999999997" y="112.89355322338831"/>
         </scene>
     </scenes>
 </document>

@@ -27,6 +27,12 @@ extension UIImage{
 
 extension URL {
     
-    
+    static func imageURL() -> URL {
+        
+        guard let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { fatalError("Error getting documents directories.") }
+        
+        return documentsDirectory.appendingPathComponent("image")
+        
+    }
     
 }

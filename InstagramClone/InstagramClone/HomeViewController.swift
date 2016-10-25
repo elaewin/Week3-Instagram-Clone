@@ -61,7 +61,34 @@ class HomeViewController: UIViewController {
         presentActionSheet()
     }
     
+    @IBAction func postButtonPressed(_ sender: AnyObject) {
+        
+        if let image = imagePickedImageView.image {
+            let newPost = Post(image: image)
+            
+            API.shared.save(post: newPost, completion: { (success) in
+                if success {
+                    print("New Post was saved to CloudKit.")
+                    
+                    let selector  = #selector(HomeViewController.image(_:didFinishSaving:context:))
+                    
+                    UIImageWriteToSavedPhotosAlbum(image, self, selector, nil)
+                }
+            })
+        }
+    }
+    
+    func image(_ image: UIImage, didFinishSaving error: NSError?, context: UnsafeRawPointer) {
+        if error == nil {
+            let alert = UIAlertController(title: "Saved", message: "Your image was saved to your photos.", preferredStyle: .alert)
+            let action = UIAlertAction(title: "Okay", style: .default, handler: nil)
+            alert.addAction(action)
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
 }
+
 
 extension HomeViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
