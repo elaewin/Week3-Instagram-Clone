@@ -73,13 +73,13 @@ extension HomeViewController: UIImagePickerControllerDelegate, UINavigationContr
         
         if let editedImage = info[UIImagePickerControllerEditedImage] as? UIImage {
             self.imagePickedImageView.image = editedImage
-            self.imagePickerControllerDidCancel(imagePicker)
         }
         
 //        if let originalImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
 //            self.imagePickedImageView.image = originalImage
 //            self.imagePickerControllerDidCancel(imagePicker)
 //        }
+        self.imagePickerControllerDidCancel(imagePicker)
     }
     
 }
