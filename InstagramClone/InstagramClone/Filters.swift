@@ -37,17 +37,18 @@ class Filters {
             // create CGImage based on the output image - from filter, onto the context.
             guard let cgImage = context.createCGImage(outputImage, from: outputImage.extent) else { fatalError("Error creating CGImage on GPU Context.") }
         
+            // add the completion back onto the main queue.
             OperationQueue.main.addOperation {
                 completion(UIImage(cgImage: cgImage))
             }
         }
     }
     
-    class func vintage(image: UIImage, completion: @escaping filterCompletion) {
-        self.filter(name: "CIPhotoEffectTransfer", image: image, completion: completion)
+    class func sepia(image: UIImage, completion: @escaping filterCompletion) {
+        self.filter(name: "CISepiaTone", image: image, completion: completion)
     }
     
-    class func blacnAndWhite(image: UIImage, completion: @escaping filterCompletion) {
+    class func blackAndWhite(image: UIImage, completion: @escaping filterCompletion) {
         self.filter(name: "CIPhotoEffectMono", image: image, completion: completion)
     }
     
@@ -55,5 +56,12 @@ class Filters {
         self.filter(name: "CIPhotoEffectChrome", image: image, completion: completion)
     }
     
+    class func invert(image: UIImage, completion: @escaping filterCompletion) {
+        self.filter(name: "CIColorInvert", image: image, completion: completion)
+    }
+    
+    class func vintage(image: UIImage, completion: @escaping filterCompletion) {
+        self.filter(name: "CIPhotoEffectInstant", image: image, completion: completion)
+    }
     
 }
