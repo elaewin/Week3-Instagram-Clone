@@ -82,7 +82,5 @@ extension HomeViewController: UIImagePickerControllerDelegate, UINavigationContr
 //        }
     }
     
-
-    
 }
 
