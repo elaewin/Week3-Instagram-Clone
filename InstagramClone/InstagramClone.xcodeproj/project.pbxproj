@@ -15,6 +15,7 @@
 		553FDE721DBE7E7B0069E282 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553FDE711DBE7E7B0069E282 /* API.swift */; };
 		553FDE741DBE850F0069E282 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553FDE731DBE850F0069E282 /* HomeViewController.swift */; };
 		55CFEE781DBFC5CC008B3EBB /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CFEE771DBFC5CC008B3EBB /* Post.swift */; };
+		55CFEE7A1DBFC64F008B3EBB /* Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CFEE791DBFC64F008B3EBB /* Additions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		553FDE711DBE7E7B0069E282 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		553FDE731DBE850F0069E282 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		55CFEE771DBFC5CC008B3EBB /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		55CFEE791DBFC64F008B3EBB /* Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Additions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 		553FDE681DBE76D20069E282 /* Supporting */ = {
 			isa = PBXGroup;
 			children = (
+				55CFEE791DBFC64F008B3EBB /* Additions.swift */,
 				553FDE5A1DBE75B20069E282 /* Assets.xcassets */,
 				553FDE5F1DBE75B20069E282 /* Info.plist */,
 				553FDE691DBE78020069E282 /* InstagramClone.entitlements */,
@@ -198,6 +201,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				553FDE721DBE7E7B0069E282 /* API.swift in Sources */,
+				55CFEE7A1DBFC64F008B3EBB /* Additions.swift in Sources */,
 				553FDE541DBE75B20069E282 /* AppDelegate.swift in Sources */,
 				553FDE741DBE850F0069E282 /* HomeViewController.swift in Sources */,
 				55CFEE781DBFC5CC008B3EBB /* Post.swift in Sources */,
