@@ -23,7 +23,7 @@ class GalleryViewController: UIViewController {
         super.viewDidLoad()
 
         self.collectionView.dataSource = self
-        self.collectionView.collectionViewLayout = GalleryCollectionViewLayout(columns: 1)
+        self.collectionView.collectionViewLayout = GalleryCollectionViewLayout(columns: 3)
         self.collectionView.delegate = self
     }
 

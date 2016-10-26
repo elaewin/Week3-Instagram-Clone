@@ -12,9 +12,9 @@ typealias filterCompletion = (UIImage?) -> ()
 
 class Filters {
     
-    static var originalImage = UIImage()
-    
     static let shared = Filters()
+    
+    static var originalImage = UIImage()
     
     // accessor methods will use this to use specific filters.
     private class func filter(name: String, image: UIImage, completion: @escaping filterCompletion) {
