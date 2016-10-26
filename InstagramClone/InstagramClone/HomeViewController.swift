@@ -140,11 +140,17 @@ class HomeViewController: UIViewController {
             })
         }
         
+        let resetAction = UIAlertAction(title: "Reset", style: .destructive) { (action) in
+            self.imagePickedImageView.image = Filters.originalImage
+            self.imagesArrayForUndo.append(Filters.originalImage)
+        }
+        
         actionSheet.addAction(bwAction)
         actionSheet.addAction(chromeAction)
         actionSheet.addAction(invertAction)
         actionSheet.addAction(sepiaAction)
         actionSheet.addAction(vintageAction)
+        actionSheet.addAction(resetAction)
         
         self.present(actionSheet, animated: true, completion: nil)
     }
@@ -181,6 +187,7 @@ extension HomeViewController: UIImagePickerControllerDelegate, UINavigationContr
         if let editedImage = info[UIImagePickerControllerEditedImage] as? UIImage {
             self.imagePickedImageView.image = editedImage
             Filters.originalImage = editedImage
+            self.imagesArrayForUndo.removeAll()
             self.imagesArrayForUndo.append(editedImage)
         }
         self.imagePickerControllerDidCancel(imagePicker)

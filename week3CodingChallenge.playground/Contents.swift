@@ -42,7 +42,31 @@ func getTheOddElements(array: [Any]) -> [Any] {
 getTheOddElements(array: array)
 getTheOddElements(array: numbersArray)
 
+// Wednesday: Write a function that computes the list of the first 100 Fibonacci numbers.(This is trickier than it seems).
 
+// Fibonacci formula: f(n) = f(n-1) + f(n-2)
+
+let starter = [1, 1]
+
+func calculateFibonaccis(numberOfFibs: Int) -> [Int] {
+    let count = (numberOfFibs - 2)
+    var numbers = [1, 1]
+    var nextNumber = 0
+    for _ in 1...count {
+        if numbers.last == 1 {
+            nextNumber = numbers.last! + 1
+            numbers.append(nextNumber)
+        } else {
+            var fib1 = numbers[numbers.count - 1]
+            var fib2 = numbers[numbers.count - 2]
+            nextNumber = fib1 + fib2
+            numbers.append(nextNumber)
+        }
+    }
+    return numbers
+}
+
+calculateFibonaccis(numberOfFibs: 100)
 
 
 
