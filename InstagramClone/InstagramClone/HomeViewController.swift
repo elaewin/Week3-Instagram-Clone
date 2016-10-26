@@ -108,35 +108,35 @@ class HomeViewController: UIViewController {
         let actionSheet = UIAlertController(title: "Filters", message: "Please pick a filter:", preferredStyle: .actionSheet)
         
         let bwAction = UIAlertAction(title: "Black & White", style: .default) { (action) in
-            Filters.blackAndWhite(image: image, completion: { (filteredImage) in
+            Filters.shared.blackAndWhite(image: image, completion: { (filteredImage) in
                 self.imagePickedImageView.image = filteredImage
                 self.imagesArrayForUndo.append(filteredImage!)
             })
         }
         
         let chromeAction = UIAlertAction(title: "Chrome", style: .default) { (action) in
-            Filters.chrome(image: image, completion: { (filteredImage) in
+            Filters.shared.chrome(image: image, completion: { (filteredImage) in
                 self.imagePickedImageView.image = filteredImage
                 self.imagesArrayForUndo.append(filteredImage!)
             })
         }
         
         let invertAction = UIAlertAction(title: "Inverted", style: .default) { (action) in
-            Filters.invert(image: image, completion: { (filteredImage) in
+            Filters.shared.invert(image: image, completion: { (filteredImage) in
                 self.imagePickedImageView.image = filteredImage
                 self.imagesArrayForUndo.append(filteredImage!)
             })
         }
         
         let sepiaAction = UIAlertAction(title: "Sepia Tone", style: .default) { (action) in
-            Filters.sepia(image: image, completion: { (filteredImage) in
+            Filters.shared.sepia(image: image, completion: { (filteredImage) in
                 self.imagePickedImageView.image = filteredImage
                 self.imagesArrayForUndo.append(filteredImage!)
             })
         }
         
         let vintageAction = UIAlertAction(title: "Vintage", style: .default) { (action) in
-            Filters.vintage(image: image, completion: { (filteredImage) in
+            Filters.shared.vintage(image: image, completion: { (filteredImage) in
                 self.imagePickedImageView.image = filteredImage
                 self.imagesArrayForUndo.append(filteredImage!)
             })
