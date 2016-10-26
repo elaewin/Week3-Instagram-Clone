@@ -57,8 +57,8 @@ func calculateFibonaccis(numberOfFibs: Int) -> [Int] {
             nextNumber = numbers.last! + 1
             numbers.append(nextNumber)
         } else {
-            var fib1 = numbers[numbers.count - 1]
-            var fib2 = numbers[numbers.count - 2]
+            let fib1 = numbers[numbers.count - 1]
+            let fib2 = numbers[numbers.count - 2]
             nextNumber = fib1 + fib2
             numbers.append(nextNumber)
         }
@@ -66,9 +66,7 @@ func calculateFibonaccis(numberOfFibs: Int) -> [Int] {
     return numbers
 }
 
-calculateFibonaccis(numberOfFibs: 100)
-
-
+calculateFibonaccis(numberOfFibs: 10)
 
 
 

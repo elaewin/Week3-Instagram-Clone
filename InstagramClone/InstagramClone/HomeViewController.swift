@@ -78,6 +78,8 @@ class HomeViewController: UIViewController {
         
     }
    
+    // MARK: Action Functions
+    
     @IBAction func imageTapped(_ sender: AnyObject) {
         presentActionSheet()
     }
@@ -154,7 +156,6 @@ class HomeViewController: UIViewController {
         
         self.present(actionSheet, animated: true, completion: nil)
     }
-    
     
     @IBAction func undoButtonPressed(_ sender: AnyObject) {
         if self.imagesArrayForUndo.count > 1 {

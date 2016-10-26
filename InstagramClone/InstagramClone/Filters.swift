@@ -64,4 +64,9 @@ class Filters {
         self.filter(name: "CIPhotoEffectInstant", image: image, completion: completion)
     }
     
+//    // possible solution for making more DRY - need to put filter names into a dict that holds filter name and string that is the actual name of the filter in the docs
+//    class func applyFilter(filterName: String, image: UIImage, completion: @escaping filterCompletion) {
+//        self.filter(name: filterName, image: image, completion: completion)
+//    }
+    
 }

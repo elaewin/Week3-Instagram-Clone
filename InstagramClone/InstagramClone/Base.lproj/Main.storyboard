@@ -58,7 +58,7 @@
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="2jc-33-DAf" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.7" id="0u7-yf-ngy"/>
-                            <constraint firstItem="2jc-33-DAf" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.7" id="3T1-v6-8YW"/>
+                            <constraint firstItem="2jc-33-DAf" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.8" id="3T1-v6-8YW"/>
                             <constraint firstAttribute="trailing" secondItem="bqx-Fo-Lkc" secondAttribute="trailing" constant="32" id="5D7-gL-Ivw"/>
                             <constraint firstItem="2jc-33-DAf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Gou-ve-nGZ"/>
                             <constraint firstAttribute="trailing" secondItem="J4g-ne-kZc" secondAttribute="trailing" constant="32" id="NQs-49-3Hp"/>
@@ -88,10 +88,10 @@
             </objects>
             <point key="canvasLocation" x="1028" y="112.89355322338831"/>
         </scene>
-        <!--View Controller-->
+        <!--Gallery View Controller-->
         <scene sceneID="nBg-uA-VcH">
             <objects>
-                <viewController id="iTh-B8-bLW" sceneMemberID="viewController">
+                <viewController id="iTh-B8-bLW" customClass="GalleryViewController" customModule="InstagramClone" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="SzR-F6-z9n"/>
                         <viewControllerLayoutGuide type="bottom" id="SEc-Gu-1p8"/>
@@ -99,13 +99,56 @@
                     <view key="view" contentMode="scaleToFill" id="cdD-Ab-Lc4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="GX8-Xp-fPn">
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="rW7-rC-ubB">
+                                    <size key="itemSize" width="125" height="122"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GalleryCell" id="qC0-eL-jJA" customClass="GalleryCell" customModule="InstagramClone" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="125" height="122"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="125" height="122"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Z1X-P9-1XI">
+                                                    <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="Z1X-P9-1XI" secondAttribute="trailing" id="5YU-op-5db"/>
+                                            <constraint firstItem="Z1X-P9-1XI" firstAttribute="top" secondItem="qC0-eL-jJA" secondAttribute="top" id="MJM-Ky-0et"/>
+                                            <constraint firstAttribute="bottom" secondItem="Z1X-P9-1XI" secondAttribute="bottom" id="Udb-hg-0VV"/>
+                                            <constraint firstItem="Z1X-P9-1XI" firstAttribute="leading" secondItem="qC0-eL-jJA" secondAttribute="leading" id="aZs-mm-AIB"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="cellImageView" destination="Z1X-P9-1XI" id="iEC-rs-LGJ"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="GX8-Xp-fPn" firstAttribute="top" secondItem="SzR-F6-z9n" secondAttribute="bottom" id="JwT-C0-x1q"/>
+                            <constraint firstAttribute="trailing" secondItem="GX8-Xp-fPn" secondAttribute="trailing" id="QCi-K3-x85"/>
+                            <constraint firstItem="SEc-Gu-1p8" firstAttribute="top" secondItem="GX8-Xp-fPn" secondAttribute="bottom" id="REt-XO-SaM"/>
+                            <constraint firstItem="GX8-Xp-fPn" firstAttribute="leading" secondItem="cdD-Ab-Lc4" secondAttribute="leading" id="itT-pI-Pgv"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="recents" id="vTf-iM-GJJ"/>
+                    <connections>
+                        <outlet property="collectionView" destination="GX8-Xp-fPn" id="rvW-fe-e6C"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hc1-Rn-RFF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1028" y="779"/>
+            <point key="canvasLocation" x="1028" y="831"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="BIt-7i-0Ji">
