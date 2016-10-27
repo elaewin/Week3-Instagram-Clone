@@ -77,7 +77,7 @@
                         <outlet property="imagePickedImageView" destination="2jc-33-DAf" id="RYW-CD-xww"/>
                         <outlet property="postButtonBottomConstraint" destination="Ocl-ME-sFH" id="CoO-M1-NZg"/>
                         <outlet property="stackViewTopConstraint" destination="dgJ-2C-qI4" id="tug-pG-AiE"/>
-                        <segue destination="op1-xx-kSa" kind="presentation" id="3TG-Qf-YJ0"/>
+                        <segue destination="op1-xx-kSa" kind="presentation" identifier="FiltersPreviewController" id="3TG-Qf-YJ0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -135,12 +135,16 @@
                                 </cells>
                             </collectionView>
                         </subviews>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="GX8-Xp-fPn" firstAttribute="top" secondItem="SzR-F6-z9n" secondAttribute="bottom" id="JwT-C0-x1q"/>
                             <constraint firstAttribute="trailing" secondItem="GX8-Xp-fPn" secondAttribute="trailing" id="QCi-K3-x85"/>
                             <constraint firstItem="SEc-Gu-1p8" firstAttribute="top" secondItem="GX8-Xp-fPn" secondAttribute="bottom" id="REt-XO-SaM"/>
                             <constraint firstItem="GX8-Xp-fPn" firstAttribute="leading" secondItem="cdD-Ab-Lc4" secondAttribute="leading" id="itT-pI-Pgv"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="e92-cU-xZ9" appends="YES" id="JsJ-h9-KOe"/>
+                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="recents" id="vTf-iM-GJJ"/>
                     <connections>
@@ -148,6 +152,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hc1-Rn-RFF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pinchGestureRecognizer id="e92-cU-xZ9">
+                    <connections>
+                        <action selector="userPinched:" destination="iTh-B8-bLW" id="ek8-d0-7iZ"/>
+                    </connections>
+                </pinchGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1028" y="831"/>
         </scene>
@@ -179,7 +188,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="173" height="165"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8eI-iO-AbA">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8eI-iO-AbA">
                                                     <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </imageView>
                                             </subviews>
@@ -198,6 +207,7 @@
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="dCF-i5-Yv0" firstAttribute="top" secondItem="rx9-05-5Tu" secondAttribute="bottom" id="JKa-TO-9oG"/>
                             <constraint firstItem="dCF-i5-Yv0" firstAttribute="leading" secondItem="ibs-wL-8G5" secondAttribute="leading" id="Yup-Kd-aSZ"/>

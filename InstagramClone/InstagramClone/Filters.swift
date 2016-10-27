@@ -15,7 +15,7 @@ class Filters {
     // Singleton: make one instance of itself
     static let shared = Filters()
     
-    static var originalImage = UIImage()
+    var originalImage = UIImage()
     
     let context: CIContext!
     
@@ -52,6 +52,10 @@ class Filters {
                 completion(UIImage(cgImage: cgImage))
             }
         }
+    }
+    
+    func original(image: UIImage, completion: @escaping filterCompletion) {
+        completion(Filters.shared.originalImage)
     }
     
     // Making more DRY 

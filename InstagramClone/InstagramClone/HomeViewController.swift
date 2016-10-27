@@ -101,30 +101,43 @@ class HomeViewController: UIViewController {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        if segue.identifier == FiltersPreviewController.identifier {
+            if let filterController = segue.destination as? FiltersPreviewController {
+                filterController.post = Post(image: self.imagePickedImageView.image!)
+                filterController.delegate = self
+            }
+        }
+    }
+    
     @IBAction func filterButtonPressed(_ sender: AnyObject) {
         // causes silent failure if no image has been picked yet!
-        guard let image = self.imagePickedImageView.image else { return }
+        guard self.imagePickedImageView.image != nil else { return }
         
-        let actionSheet = UIAlertController(title: "Filters", message: "Please pick a filter:", preferredStyle: .actionSheet)
+        self.performSegue(withIdentifier: FiltersPreviewController.identifier, sender: nil)
         
-        for (filterName, ciName) in Filters.shared.possibleFilters {
-            let action = UIAlertAction(title: filterName, style: .default, handler: { (action) in
-                Filters.shared.applyFilter(usingFilterTitled: ciName, image: image, completion: { (filteredImage) in
-                    self.imagePickedImageView.image = filteredImage
-                    self.imagesArrayForUndo.append(filteredImage!)
-                })
-            })
-            actionSheet.addAction(action)
-        }
-        
-        let resetAction = UIAlertAction(title: "Reset", style: .destructive) { (action) in
-            self.imagePickedImageView.image = Filters.originalImage
-            self.imagesArrayForUndo.append(Filters.originalImage)
-        }
-        
-        actionSheet.addAction(resetAction)
-        
-        self.present(actionSheet, animated: true, completion: nil)
+//        let actionSheet = UIAlertController(title: "Filters", message: "Please pick a filter:", preferredStyle: .actionSheet)
+//        
+//        for (filterName, ciName) in Filters.shared.possibleFilters {
+//            let action = UIAlertAction(title: filterName, style: .default, handler: { (action) in
+//                Filters.shared.applyFilter(usingFilterTitled: ciName, image: image, completion: { (filteredImage) in
+//                    self.imagePickedImageView.image = filteredImage
+//                    self.imagesArrayForUndo.append(filteredImage!)
+//                })
+//            })
+//            actionSheet.addAction(action)
+//        }
+//        
+//        let resetAction = UIAlertAction(title: "Reset", style: .destructive) { (action) in
+//            self.imagePickedImageView.image = Filters.shared.originalImage
+//            self.imagesArrayForUndo.append(Filters.shared.originalImage)
+//        }
+//        
+//        actionSheet.addAction(resetAction)
+//        
+//        self.present(actionSheet, animated: true, completion: nil)
     }
     
     @IBAction func undoButtonPressed(_ sender: AnyObject) {
@@ -144,7 +157,6 @@ class HomeViewController: UIViewController {
             self.present(alert, animated: true, completion: nil)
         }
     }
-    
 }
 
 extension HomeViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -157,12 +169,22 @@ extension HomeViewController: UIImagePickerControllerDelegate, UINavigationContr
         
         if let editedImage = info[UIImagePickerControllerEditedImage] as? UIImage {
             self.imagePickedImageView.image = editedImage
-            Filters.originalImage = editedImage
+            Filters.shared.originalImage = editedImage
             self.imagesArrayForUndo.removeAll()
             self.imagesArrayForUndo.append(editedImage)
         }
         self.imagePickerControllerDidCancel(imagePicker)
     }
-    
 }
+
+extension HomeViewController: FiltersPreviewControllerDelegate {
+    
+    func filtersPreviewController(selected: UIImage) {
+        self.dismiss(animated: true, completion: nil)
+        self.imagePickedImageView.image = selected
+    }
+}
+
+
+
 

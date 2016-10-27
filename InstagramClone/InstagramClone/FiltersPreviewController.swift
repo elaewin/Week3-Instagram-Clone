@@ -8,31 +8,69 @@
 
 import UIKit
 
+protocol FiltersPreviewControllerDelegate: class {
+    func filtersPreviewController(selected: UIImage)
+}
+
 class FiltersPreviewController: UIViewController {
+    
+    weak var delegate: FiltersPreviewControllerDelegate?
 
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    let filters = [Filters.shared.original]
+    
+    var post = Post()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.collectionView.dataSource = self
-        // Do any additional setup after loading the view.
+        self.collectionView.delegate = self
+        self.collectionView.collectionViewLayout = GalleryCollectionViewLayout(columns: 2)
     }
-
-
 }
 
-extension FiltersPreviewController: UICollectionViewDataSource {
+// MARK: Extensions
+
+extension FiltersPreviewController {
+    static var identifier: String {
+        return String(describing: self)
+    }
+}
+
+extension FiltersPreviewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
+        let filterCell = collectionView.dequeueReusableCell(withReuseIdentifier: GalleryCell.identifier, for: indexPath) as! GalleryCell
         
+        let filter = self.filters[indexPath.row]
         
+        filter(self.post.image) { (filteredImage) in
+            filterCell.cellImageView.image = filteredImage
+        }
+        
+        return filterCell
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return filters.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let delegate = self.delegate else { return }
         
+        let filter = self.filters[indexPath.row]
         
-        
+        filter(self.post.image) { (filteredImage) in
+            if let filteredImage = filteredImage {
+                delegate.filtersPreviewController(selected: filteredImage)
+            }
+        }
     }
 }
+
+
+
+
