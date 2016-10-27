@@ -12,6 +12,7 @@ typealias filterCompletion = (UIImage?) -> ()
 
 class Filters {
     
+    // Singleton: make one instance of itself
     static let shared = Filters()
     
     static var originalImage = UIImage()
@@ -20,8 +21,9 @@ class Filters {
     
     let possibleFilters = ["Sepia": "CISepiaTone", "Monochrome": "CIPhotoEffectMono", "Chrome": "CIPhotoEffectChrome", "Inverted": "CIColorInvert", "Vintage": "CIPhotoEffectInstant"]
     
+    // Make it a 'true' singleton
     private init(){
-        // Code to create GPU context
+        // Code to create GPU context, in init so only have 1 context
         let options = [kCIContextWorkingColorSpace: NSNull()]
         let eaglContext = EAGLContext(api: .openGLES2)
         self.context = CIContext(eaglContext: eaglContext!, options: options)
@@ -32,8 +34,9 @@ class Filters {
         
         OperationQueue().addOperation {
             
-            // check to make sure filter exists.
+            // check to make sure filter exists, create new instance of filter.
             guard let filter = CIFilter(name: name) else { fatalError("Check spelling of filter name.") }
+            
             // create new CIImage
             let ciImage = CIImage(image: image)
             filter.setValue(ciImage, forKey: kCIInputImageKey)
@@ -51,27 +54,7 @@ class Filters {
         }
     }
     
-    func sepia(image: UIImage, completion: @escaping filterCompletion) {
-        self.filter(name: "CISepiaTone", image: image, completion: completion)
-    }
-    
-    func blackAndWhite(image: UIImage, completion: @escaping filterCompletion) {
-        self.filter(name: "CIPhotoEffectMono", image: image, completion: completion)
-    }
-    
-    func chrome(image: UIImage, completion: @escaping filterCompletion) {
-        self.filter(name: "CIPhotoEffectChrome", image: image, completion: completion)
-    }
-    
-    func invert(image: UIImage, completion: @escaping filterCompletion) {
-        self.filter(name: "CIColorInvert", image: image, completion: completion)
-    }
-    
-    func vintage(image: UIImage, completion: @escaping filterCompletion) {
-        self.filter(name: "CIPhotoEffectInstant", image: image, completion: completion)
-    }
-    
-//    // possible solution for making more DRY 
+    // Making more DRY 
     func applyFilter(usingFilterTitled: String, image: UIImage, completion: @escaping filterCompletion) {
         self.filter(name: usingFilterTitled, image: image, completion: completion)
     }
