@@ -107,39 +107,14 @@ class HomeViewController: UIViewController {
         
         let actionSheet = UIAlertController(title: "Filters", message: "Please pick a filter:", preferredStyle: .actionSheet)
         
-        let bwAction = UIAlertAction(title: "Black & White", style: .default) { (action) in
-            Filters.shared.blackAndWhite(image: image, completion: { (filteredImage) in
-                self.imagePickedImageView.image = filteredImage
-                self.imagesArrayForUndo.append(filteredImage!)
+        for (filterName, ciName) in Filters.shared.possibleFilters {
+            let action = UIAlertAction(title: filterName, style: .default, handler: { (action) in
+                Filters.shared.applyFilter(usingFilterTitled: ciName, image: image, completion: { (filteredImage) in
+                    self.imagePickedImageView.image = filteredImage
+                    self.imagesArrayForUndo.append(filteredImage!)
+                })
             })
-        }
-        
-        let chromeAction = UIAlertAction(title: "Chrome", style: .default) { (action) in
-            Filters.shared.chrome(image: image, completion: { (filteredImage) in
-                self.imagePickedImageView.image = filteredImage
-                self.imagesArrayForUndo.append(filteredImage!)
-            })
-        }
-        
-        let invertAction = UIAlertAction(title: "Inverted", style: .default) { (action) in
-            Filters.shared.invert(image: image, completion: { (filteredImage) in
-                self.imagePickedImageView.image = filteredImage
-                self.imagesArrayForUndo.append(filteredImage!)
-            })
-        }
-        
-        let sepiaAction = UIAlertAction(title: "Sepia Tone", style: .default) { (action) in
-            Filters.shared.sepia(image: image, completion: { (filteredImage) in
-                self.imagePickedImageView.image = filteredImage
-                self.imagesArrayForUndo.append(filteredImage!)
-            })
-        }
-        
-        let vintageAction = UIAlertAction(title: "Vintage", style: .default) { (action) in
-            Filters.shared.vintage(image: image, completion: { (filteredImage) in
-                self.imagePickedImageView.image = filteredImage
-                self.imagesArrayForUndo.append(filteredImage!)
-            })
+            actionSheet.addAction(action)
         }
         
         let resetAction = UIAlertAction(title: "Reset", style: .destructive) { (action) in
@@ -147,11 +122,6 @@ class HomeViewController: UIViewController {
             self.imagesArrayForUndo.append(Filters.originalImage)
         }
         
-        actionSheet.addAction(bwAction)
-        actionSheet.addAction(chromeAction)
-        actionSheet.addAction(invertAction)
-        actionSheet.addAction(sepiaAction)
-        actionSheet.addAction(vintageAction)
         actionSheet.addAction(resetAction)
         
         self.present(actionSheet, animated: true, completion: nil)
