@@ -19,7 +19,7 @@ class Filters {
     
     let context: CIContext!
     
-    let possibleFilters = ["Sepia": "CISepiaTone", "Monochrome": "CIPhotoEffectMono", "Chrome": "CIPhotoEffectChrome", "Inverted": "CIColorInvert", "Vintage": "CIPhotoEffectInstant"]
+    let possibleFilters = ["No changes to image": "Original", "Sepia": "CISepiaTone", "Monochrome": "CIPhotoEffectMono", "Chrome": "CIPhotoEffectChrome", "Inverted": "CIColorInvert", "Vintage": "CIPhotoEffectInstant"]
     
     // Make it a 'true' singleton
     private init(){
@@ -60,7 +60,6 @@ class Filters {
     
     // Making more DRY 
     func applyFilter(usingFilterTitled: String, image: UIImage, completion: @escaping filterCompletion) {
-        self.filter(name: usingFilterTitled, image: image, completion: completion)
-    }
-    
+            self.filter(name: usingFilterTitled, image: image, completion: completion)
+        }
 }
