@@ -27,8 +27,7 @@ class GalleryCell: UICollectionViewCell {
 }
 
 extension GalleryCell {
-    
-    class func identifier() -> String {
+    static var identifier: String {
         return String(describing: self)
     }
     

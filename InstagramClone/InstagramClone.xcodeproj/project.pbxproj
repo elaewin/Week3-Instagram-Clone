@@ -18,6 +18,7 @@
 		55985B661DC1295600121EEB /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55985B651DC1295600121EEB /* GalleryViewController.swift */; };
 		55985B681DC12CE300121EEB /* GalleryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55985B671DC12CE300121EEB /* GalleryCell.swift */; };
 		55985B6A1DC1543200121EEB /* GalleryCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55985B691DC1543200121EEB /* GalleryCollectionViewLayout.swift */; };
+		55985B6C1DC28F4800121EEB /* FiltersPreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55985B6B1DC28F4800121EEB /* FiltersPreviewController.swift */; };
 		55CFEE781DBFC5CC008B3EBB /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CFEE771DBFC5CC008B3EBB /* Post.swift */; };
 		55CFEE7A1DBFC64F008B3EBB /* Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CFEE791DBFC64F008B3EBB /* Additions.swift */; };
 /* End PBXBuildFile section */
@@ -37,6 +38,7 @@
 		55985B651DC1295600121EEB /* GalleryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
 		55985B671DC12CE300121EEB /* GalleryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryCell.swift; sourceTree = "<group>"; };
 		55985B691DC1543200121EEB /* GalleryCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewLayout.swift; sourceTree = "<group>"; };
+		55985B6B1DC28F4800121EEB /* FiltersPreviewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltersPreviewController.swift; sourceTree = "<group>"; };
 		55CFEE771DBFC5CC008B3EBB /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		55CFEE791DBFC64F008B3EBB /* Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Additions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -105,6 +107,7 @@
 		553FDE671DBE76CA0069E282 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				55985B6B1DC28F4800121EEB /* FiltersPreviewController.swift */,
 				55985B651DC1295600121EEB /* GalleryViewController.swift */,
 				553FDE731DBE850F0069E282 /* HomeViewController.swift */,
 				553FDE531DBE75B20069E282 /* AppDelegate.swift */,
@@ -212,6 +215,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55985B6C1DC28F4800121EEB /* FiltersPreviewController.swift in Sources */,
 				553FDE721DBE7E7B0069E282 /* API.swift in Sources */,
 				55985B661DC1295600121EEB /* GalleryViewController.swift in Sources */,
 				55CFEE7A1DBFC64F008B3EBB /* Additions.swift in Sources */,
