@@ -19,7 +19,7 @@ class Filters {
     
     let context: CIContext!
     
-    let possibleFilters = ["No changes to image": "Original", "Sepia": "CISepiaTone", "Monochrome": "CIPhotoEffectMono", "Chrome": "CIPhotoEffectChrome", "Inverted": "CIColorInvert", "Vintage": "CIPhotoEffectInstant"]
+    let possibleFilters = ["Sepia": "CISepiaTone", "Monochrome": "CIPhotoEffectMono", "Chrome": "CIPhotoEffectChrome", "Inverted": "CIColorInvert", "Vintage": "CIPhotoEffectInstant"]
     
     // Make it a 'true' singleton
     private init(){

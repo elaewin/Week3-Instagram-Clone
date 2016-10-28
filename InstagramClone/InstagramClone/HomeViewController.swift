@@ -152,6 +152,11 @@ class HomeViewController: UIViewController {
             self.present(alert, animated: true, completion: nil)
         }
     }
+    
+    func startUndoArray(_ selected: UIImage) {
+        self.imagesArrayForUndo.removeAll()
+        self.imagesArrayForUndo.append(selected)
+    }
 }
 
 extension HomeViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -165,8 +170,7 @@ extension HomeViewController: UIImagePickerControllerDelegate, UINavigationContr
         if let editedImage = info[UIImagePickerControllerEditedImage] as? UIImage {
             self.imagePickedImageView.image = editedImage
             Filters.shared.originalImage = editedImage
-            self.imagesArrayForUndo.removeAll()
-            self.imagesArrayForUndo.append(editedImage)
+            startUndoArray(editedImage)
         }
         self.imagePickerControllerDidCancel(imagePicker)
     }
@@ -176,6 +180,7 @@ extension HomeViewController: FiltersPreviewControllerDelegate {
     
     func filtersPreviewController(selected: UIImage) {
         self.dismiss(animated: true, completion: nil)
+        self.imagesArrayForUndo.append(selected)
         self.imagePickedImageView.image = selected
     }
 }
@@ -184,6 +189,7 @@ extension HomeViewController: GalleryViewControllerDelegate {
     
     func galleryViewController(selected: UIImage) {
         self.imagePickedImageView.image = selected
+        startUndoArray(selected)
         self.tabBarController?.selectedViewController = self
     }
 }
