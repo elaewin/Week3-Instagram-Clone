@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Social
 
 class HomeViewController: UIViewController {
     
@@ -24,6 +25,10 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         presentImagePicker(sourceType: .photoLibrary)
+        
+        if let galleryController = self.tabBarController?.viewControllers?[1] as? GalleryViewController {
+            galleryController.delegate = self
+        }
         
         // Do any additional setup after loading the view.
     }
@@ -84,6 +89,17 @@ class HomeViewController: UIViewController {
         presentActionSheet()
     }
     
+    @IBAction func imageLongPressed(_ sender: UILongPressGestureRecognizer) {
+        
+        guard let composeController = SLComposeViewController(forServiceType: SLServiceTypeTwitter) else { return }
+        
+        composeController.add(imagePickedImageView.image)
+        
+        self.present(composeController, animated: true, completion: nil)
+        
+    }
+    
+    
     @IBAction func postButtonPressed(_ sender: AnyObject) {
         
         if let image = imagePickedImageView.image {
@@ -117,27 +133,6 @@ class HomeViewController: UIViewController {
         guard self.imagePickedImageView.image != nil else { return }
         
         self.performSegue(withIdentifier: FiltersPreviewController.identifier, sender: nil)
-        
-//        let actionSheet = UIAlertController(title: "Filters", message: "Please pick a filter:", preferredStyle: .actionSheet)
-//        
-//        for (filterName, ciName) in Filters.shared.possibleFilters {
-//            let action = UIAlertAction(title: filterName, style: .default, handler: { (action) in
-//                Filters.shared.applyFilter(usingFilterTitled: ciName, image: image, completion: { (filteredImage) in
-//                    self.imagePickedImageView.image = filteredImage
-//                    self.imagesArrayForUndo.append(filteredImage!)
-//                })
-//            })
-//            actionSheet.addAction(action)
-//        }
-//        
-//        let resetAction = UIAlertAction(title: "Reset", style: .destructive) { (action) in
-//            self.imagePickedImageView.image = Filters.shared.originalImage
-//            self.imagesArrayForUndo.append(Filters.shared.originalImage)
-//        }
-//        
-//        actionSheet.addAction(resetAction)
-//        
-//        self.present(actionSheet, animated: true, completion: nil)
     }
     
     @IBAction func undoButtonPressed(_ sender: AnyObject) {
@@ -185,6 +180,12 @@ extension HomeViewController: FiltersPreviewControllerDelegate {
     }
 }
 
-
+extension HomeViewController: GalleryViewControllerDelegate {
+    
+    func galleryViewController(selected: UIImage) {
+        self.imagePickedImageView.image = selected
+        self.tabBarController?.selectedViewController = self
+    }
+}
 
 

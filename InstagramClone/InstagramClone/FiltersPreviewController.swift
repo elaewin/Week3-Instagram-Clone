@@ -18,7 +18,7 @@ class FiltersPreviewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
-    let filters = [Filters.shared.original]
+    let filterNames = Array(Filters.shared.possibleFilters.values)
     
     var post = Post()
     
@@ -45,9 +45,9 @@ extension FiltersPreviewController: UICollectionViewDataSource, UICollectionView
         
         let filterCell = collectionView.dequeueReusableCell(withReuseIdentifier: GalleryCell.identifier, for: indexPath) as! GalleryCell
         
-        let filter = self.filters[indexPath.row]
+        let filterName = self.filterNames[indexPath.row]
         
-        filter(self.post.image) { (filteredImage) in
+        Filters.shared.applyFilter(usingFilterTitled: filterName, image: post.image) { (filteredImage) in
             filterCell.cellImageView.image = filteredImage
         }
         
@@ -55,15 +55,15 @@ extension FiltersPreviewController: UICollectionViewDataSource, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return filters.count
+        return filterNames.count
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let delegate = self.delegate else { return }
         
-        let filter = self.filters[indexPath.row]
+        let filterName = self.filterNames[indexPath.row]
         
-        filter(self.post.image) { (filteredImage) in
+        Filters.shared.applyFilter(usingFilterTitled: filterName, image: post.image) { (filteredImage) in
             if let filteredImage = filteredImage {
                 delegate.filtersPreviewController(selected: filteredImage)
             }
