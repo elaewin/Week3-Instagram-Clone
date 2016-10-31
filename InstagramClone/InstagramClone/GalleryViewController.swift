@@ -91,6 +91,8 @@ extension GalleryViewController: UICollectionViewDataSource, UICollectionViewDel
         
         delegate.galleryViewController(selected: selectedImage!)
         
+        Filters.shared.originalImage = selectedImage!
+        
     }
 }
 
