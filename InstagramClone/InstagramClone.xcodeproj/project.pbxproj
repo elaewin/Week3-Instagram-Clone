@@ -41,6 +41,8 @@
 		55985B6B1DC28F4800121EEB /* FiltersPreviewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltersPreviewController.swift; sourceTree = "<group>"; };
 		55CFEE771DBFC5CC008B3EBB /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		55CFEE791DBFC64F008B3EBB /* Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Additions.swift; sourceTree = "<group>"; };
+		55E696B11DC3C33500BD8757 /* stacks.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = stacks.playground; sourceTree = "<group>"; };
+		55E696B21DC3F6EC00BD8757 /* linkedlist.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = linkedlist.playground; path = InstagramClone/linkedlist.playground; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,8 @@
 		553FDE471DBE75B20069E282 = {
 			isa = PBXGroup;
 			children = (
+				55E696B11DC3C33500BD8757 /* stacks.playground */,
+				55E696B21DC3F6EC00BD8757 /* linkedlist.playground */,
 				553FDE521DBE75B20069E282 /* InstagramClone */,
 				553FDE511DBE75B20069E282 /* Products */,
 				553FDE6A1DBE78060069E282 /* Frameworks */,
