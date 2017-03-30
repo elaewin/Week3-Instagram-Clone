@@ -47,7 +47,7 @@ extension FiltersPreviewController: UICollectionViewDataSource, UICollectionView
         
         let filterName = self.filterNames[indexPath.row]
         
-        Filters.shared.applyFilter(usingFilterTitled: filterName, image: post.image) { (filteredImage) in
+        Filters.shared.applyFilter(usingFilterTitled: filterName, image: post.image, params: nil) { (filteredImage) in
             filterCell.cellImageView.image = filteredImage
         }
         
@@ -63,7 +63,7 @@ extension FiltersPreviewController: UICollectionViewDataSource, UICollectionView
         
         let filterName = self.filterNames[indexPath.row]
         
-        Filters.shared.applyFilter(usingFilterTitled: filterName, image: post.image) { (filteredImage) in
+        Filters.shared.applyFilter(usingFilterTitled: filterName, image: post.image, params: nil) { (filteredImage) in
             if let filteredImage = filteredImage {
                 delegate.filtersPreviewController(selected: filteredImage)
             }

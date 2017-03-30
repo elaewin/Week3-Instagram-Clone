@@ -30,13 +30,13 @@ class Filters {
     }
     
     // accessor methods will use this to use specific filters.
-    private func filter(name: String, image: UIImage, completion: @escaping filterCompletion) {
+    private func filter(name: String, image: UIImage, params: [String:Any]?, completion: @escaping filterCompletion) {
         
         OperationQueue().addOperation {
             
             // check to make sure filter exists, create new instance of filter.
-            guard let filter = CIFilter(name: name) else { fatalError("Check spelling of filter name.") }
-            
+            guard let filter = CIFilter(name: name, withInputParameters: params) else { fatalError("Check spelling of filter name.") }
+                        
             // create new CIImage
             let ciImage = CIImage(image: image)
             filter.setValue(ciImage, forKey: kCIInputImageKey)
@@ -59,8 +59,8 @@ class Filters {
     }
     
     // Making more DRY 
-    func applyFilter(usingFilterTitled: String, image: UIImage, completion: @escaping filterCompletion) {
-        self.filter(name: usingFilterTitled, image: image, completion: completion)
+    func applyFilter(usingFilterTitled: String, image: UIImage, params: [String:Any]?, completion: @escaping filterCompletion) {
+        self.filter(name: usingFilterTitled, image: image, params: params, completion: completion)
     }
     
 }
