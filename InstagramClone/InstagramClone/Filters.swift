@@ -28,7 +28,7 @@ class Filters {
     }
     
     // accessor methods will use this to use specific filters.
-    private func filter(name: String, image: UIImage, completion: @escaping filterCompletion) {
+    private func filter(name: String, image: UIImage, params: [String:Any]?, completion: @escaping filterCompletion) {
         
         OperationQueue().addOperation {
             
@@ -52,28 +52,28 @@ class Filters {
     }
     
     func sepia(image: UIImage, completion: @escaping filterCompletion) {
-        self.filter(name: "CISepiaTone", image: image, completion: completion)
+        self.filter(name: "CISepiaTone", image: image, params: nil, completion: completion)
     }
     
     func blackAndWhite(image: UIImage, completion: @escaping filterCompletion) {
-        self.filter(name: "CIPhotoEffectMono", image: image, completion: completion)
+        self.filter(name: "CIPhotoEffectMono", image: image, params: nil, completion: completion)
     }
     
     func chrome(image: UIImage, completion: @escaping filterCompletion) {
-        self.filter(name: "CIPhotoEffectChrome", image: image, completion: completion)
+        self.filter(name: "CIPhotoEffectChrome", image: image, params: nil, completion: completion)
     }
     
     func invert(image: UIImage, completion: @escaping filterCompletion) {
-        self.filter(name: "CIColorInvert", image: image, completion: completion)
+        self.filter(name: "CIColorInvert", image: image, params: nil, completion: completion)
     }
     
     func vintage(image: UIImage, completion: @escaping filterCompletion) {
-        self.filter(name: "CIPhotoEffectInstant", image: image, completion: completion)
+        self.filter(name: "CIPhotoEffectInstant", image: image, params: nil, completion: completion)
     }
     
 //    // possible solution for making more DRY 
-    func applyFilter(usingFilterTitled: String, image: UIImage, completion: @escaping filterCompletion) {
-        self.filter(name: usingFilterTitled, image: image, completion: completion)
+    func applyFilter(usingFilterTitled: String, image: UIImage, params: [String:Any]?, completion: @escaping filterCompletion) {
+        self.filter(name: usingFilterTitled, image: image, params: params, completion: completion)
     }
     
 }
